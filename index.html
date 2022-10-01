@@ -1,0 +1,49 @@
+<!--comment-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo-list</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"defer></script>
+</head>
+
+<body>
+    <div class="webpage-container">
+        <div class="form-side">
+            <h1>To Do List</h1>
+            <button>New Project</button>
+            <h2>Project List</h2>
+
+            <form class="todo-tile">
+            <h2>To Do List Form</h2>
+            <label for="form-title">Titie:</label>
+			    <input type="text" id="form-title" name="form-title" placeholder="Title" required />
+			    <label for="form-details">Details:</label>
+			    <input type="text" id="form-details" name="form-details" placeholder="Details" required />
+			    <label for="form-dueDate">Due Date</label>
+                <input type="text" id="form-dueDate" name="form-dueDate" placeholder="Due Date" required />
+                <button class="addEntry" type="button" onclick="addToDoTileToArray()">Add Entry</button>
+            </form>
+
+        </div>
+
+
+        <div class="content-side">
+            <div id="todo-list" style="display: grid; grid-template-columns: 1fr">
+            
+            
+            </div>
+
+
+
+  
+
+
+
+    </div>
+</body>
+
+</html>
