@@ -1,5 +1,6 @@
 //comment
-//Empty array to hold todo list
+//Empty array to hold project list
+let myProjects = [];
 let myToDoList = [
     {
         title: 'wash car',
@@ -17,6 +18,49 @@ let myToDoList = [
         dueDate: '10/3/22',
     }
 ];
+myProjects.push(myToDoList);
+const removePBtn = document.createElement('button');
+
+function newProjArrConst(projTitle) {
+    this.projTitle = projTitle;
+}
+
+function addProjToArray() {
+  let p = document.getElementById('form-proj').value;
+
+  if (p !== '') {
+    myProjects.push(new newProjArrConst(p));
+    displayProjList();
+  } else {
+    alert('Entry must be given a title');
+  }
+}
+
+const DOMprojList = document.getElementById('proj-list');
+
+function displayProjList() {
+  DOMprojList.innerHTML = '';
+
+  for (let i = 0; i < myProjects.length; i++) {
+    removePBtn.innerHTML =
+    `<button class="remove-Pbtn" onclick="removePEntry(${i})">Delete</button>`;
+
+    const projTile = document.createElement('div');
+    projTile.classList.add('proj-row');
+    projTile.innerHTML = 
+
+    `<div>${myProjects[i].projTitle}</div>`
+    
+    projTile.append(removePBtn.cloneNode(true));
+    DOMprojList.append(projTile);
+  }
+}
+
+displayProjList();
+
+
+//Empty array to hold todo list
+
 //creates remove button
 const removeBtn = document.createElement('button');
 //todo tile object constructor
@@ -63,7 +107,17 @@ function displayToDoList() {
 
 displayToDoList();
 
+
 function removeEntry(i) {
     myToDoList.splice(i, 1);
     displayToDoList();
 }
+
+function removePEntry(i) {
+    myProjects.splice(i, 1);
+    displayProjList();
+}
+
+//honestly having issues connecting the projlist to the todo list and making them interactive with each other.
+//I feel like the answers are out there and I am just missing pieces to the project.
+//I've decided to move on for a bit and return to this after learning more javascript.
